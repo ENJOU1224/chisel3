@@ -130,34 +130,35 @@ Larger projects need a build tool.
 
 #### Mill
 
-[Mill](https://mill-build.com) is a modern Scala build tool with simple syntax and a better command-line experience than SBT.
+[Mill](https://mill-build.org) is a modern Scala build tool with simple syntax and a better command-line experience than SBT.
 We recommend Chisel users use Mill.
 
-For detailed instructions, please see the [Mill documentation](https://mill-build.com/mill/Intro_to_Mill.html).
+For detailed instructions, please see the [Mill documentation](https://mill-build.org/mill/cli/installation-ide.html).
+Mill is installed via its official bootstrap script (similar to `./gradlew`).
 
 ##### Linux and MacOS
 
-The easiest way to use Mill is with the Mill Wrapper Script `millw`:
-
 ```sh
-curl -L https://raw.githubusercontent.com/lefou/millw/0.4.11/millw > mill && chmod +x mill
+sudo curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.10/mill-dist-1.1.10-mill.sh -o /usr/local/bin/mill
+sudo chmod +x /usr/local/bin/mill
 ```
 
-You can then move this script to a global install location:
+To install without `sudo`, place the script in a directory already on your `PATH` (for example `~/.local/bin`):
 
 ```sh
-sudo mv mill /usr/local/bin/
+curl -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.10/mill-dist-1.1.10-mill.sh -o ~/.local/bin/mill
+chmod +x ~/.local/bin/mill
 ```
 
 ##### Windows
 
-Using [Scoop](https://scoop.sh):
-```sh
-scoop install mill
+In PowerShell (`curl` is an alias of `Invoke-WebRequest` in Windows PowerShell 5.1, so use `curl.exe` explicitly):
+
+```powershell
+curl.exe -L https://repo1.maven.org/maven2/com/lihaoyi/mill-dist/1.1.10/mill-dist-1.1.10-mill.bat -o mill.bat
 ```
 
-<!-- TODO flesh this out -->
-Download `millw.bat`: https://raw.githubusercontent.com/lefou/millw/0.4.11/millw.bat.
+Place `mill.bat` in your project root, or in a directory on your `PATH`.
 
 #### SBT
 
